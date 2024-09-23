@@ -38,7 +38,7 @@ Hirschberg(X, Y, align, match, mismatch, gap)
 10      Z ← Z + X[i]
 11      W ← W + '-'
 12    align ← merge alignments Z and W
-13  else if length(X) = 1 or length(Y) = 1
+13  else if length(X) = 1 and length(Y) = 1
 14    Z ← Z + X[1]
 15    W ← W + Y[1]
 16    align ← merge alignments Z and W
