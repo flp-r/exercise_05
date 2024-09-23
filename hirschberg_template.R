@@ -1,11 +1,12 @@
 #' Align two sequences globally using Hirschberg's algorithm
 #' 
-#' @param X DNAString object representing NT or AA sequence to align
-#' @param Y DNAString object representing NT or AA sequence to align
-#' @param align A list of DNAString objects with alignment of input sequences
-#' @param match An integer value of a score for matching bases
-#' @param mismatch An integer value of score for mismatching bases
-#' @param gap An integer value of penalty for gap insertion
+#' @param X DNAString object representing NT or AA sequence to be aligned.
+#' @param Y DNAString object representing NT or AA sequence to be aligned.
+#' @param align A list of DNAString objects with alignment of input sequences.
+#' @param match An integer value of a score for matching bases.
+#' @param mismatch An integer value of a score for mismatching bases.
+#' @param gap An integer value of a penalty for gap insertion.
+#' @returns A list of DNAString objects with alignment of input sequences.
 HirschbergTemplate <- function(X, Y, align, match, mismatch, gap){
     
     first_align_row <- align[[1]] # initialize the first row of alignment
