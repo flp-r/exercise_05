@@ -1,26 +1,29 @@
 # Hirschberg's algorithm
-Hirschberg's algorithm is a dynamic programming algorithm that finds the optimal sequence alignment between two strings
-**X** with length *m* and **Y** with length *n*.
-In comparison with Needleman-Wunsch algorithm, Hirschberg's algorithm is more space efficient:
-
-| Algorithm | Time complexity | Space complexity |
-|---|-----------------|------------------|
-| Needleman-Wunsch | *O*(*m* \* *n*) | *O*(*m* \* *n*)  |
-| Hirschberg | *O*(*m* \* *n*) | *O*(*m* + *n*)   |
 
 ### Task
-Implement Hirschberg's algorithm - you can use a template `hirschberg_template.R`.
+* In R, create a function `Hirschberg()` for the alignment of two sequences using Hirschberg’s algorithm.
 
+* Input:
+    * `DNAString` object representing NT or AA sequence to be aligned
+    * `DNAString` object representing NT or AA sequence to be aligned
+    * list of `DNAString` objects with alignment of input sequences
+    * an integer value of a score for matching bases
+    * an integer value of a score for mismatching bases
+    * an integer value of a penalty for gap insertion
 
-More information can be also find:
-* in the presentation by Kevin Wayne [here](https://www.cs.princeton.edu/~wayne/kleinberg-tardos/pdf/06DynamicProgrammingII.pdf),
-* in the presentation by Carl Kingsford [here](http://www.cs.cmu.edu/~ckingsf/bioinfo-lectures/linspace.pdf),
-* or on Wikipedia [page](https://en.wikipedia.org/wiki/Hirschberg%27s_algorithm).
+* Output:
+    * list of `DNAString` objects with alignment of input sequences
+
+* Implement the function on your own or you can use a prepared template `hirschberg_template.R`.
+* **Hint:** You will need to implement your own function to calculate the score of the partial alignments 
+  (use the Needleman-Wunsch algorithm in linear space).
+* Also for spoilers and more help, see the following pseudocode, that corresponds with the template.
+
 
 <details>
-<summary>Spoilers! Help</summary>
+<summary>Spoilers! Pseudocode here:</summary>
 
-#### Pseudo code of Hirschberg's algorithm
+#### Pseudocode of Hirschberg's algorithm
 ```
 Hirschberg(X, Y, align, match, mismatch, gap)
 1   Z ← the first row of alignment
@@ -43,32 +46,33 @@ Hirschberg(X, Y, align, match, mismatch, gap)
 18    xlen ← length(X)
 19    xmid ← xlen / 2
 20    ylen ← length(Y)
-21    ScoreL ← NWScore(X[1:xmid], Y, match, mismatch, gap)
-22    ScoreR ← NWScore(reverse(X[xmid+1:xlen]), reverse(Y))
+21    ScoreL ← NWScore(X(1, xmid), Y, match, mismatch, gap)
+22    ScoreR ← NWScore(reverse(X(xmid + 1, xlen)), reverse(Y))
 23    ymid ← arg max (ScoreL + reverse(ScoreR)) - 1
-24    align ← Hirschberg(X[1:xmid], Y[1:ymid], align, match, mismatch, gap)
-25    align ← Hirschberg(X[xmid+1:xlen], Y[ymid+1:ylen], match, mismatch, gap)
+24    align ← Hirschberg(X(1, xmid), Y(1, ymid), align, match, mismatch, gap)
+25    align ← Hirschberg(X(xmid + 1, xlen), Y(ymid + 1, ylen), match, mismatch, gap)
 26  return align
 ```
 </details>
+
 <details>
 <summary>Download files from GitHub</summary>
 <details>
 <summary>Basic Git settings</summary>
 
-> * Configure the Git editor
-> ```bash
-> git config --global core.editor notepad
-> ```
-> * Configure your name and email address
-> ```bash
-> git config --global user.name "Zuzana Nova"
-> git config --global user.email z.nova@vut.cz
-> ```
-> * Check current settings
-> ```bash
-> git config --global --list
-> ```
+>* Configure the Git editor
+>    ```bash
+>    git config --global core.editor notepad
+>    ```
+>* Configure your name and email address
+>    ```bash
+>    git config --global user.name "Zuzana Nova"
+>    git config --global user.email z.nova@vut.cz
+>    ```
+>* Check current settings
+>    ```bash
+>    git config --global --list
+>    ```
 >
 </details>
 
