@@ -1,4 +1,4 @@
-# Hirschberg's algorithm
+# Hirschberg's Algorithm
 
 ### Task
 * In R, create a function `Hirschberg()` for the alignment of two sequences using Hirschberg’s algorithm.
