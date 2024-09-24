@@ -6,13 +6,13 @@
 * Input:
     * `DNAString` object representing NT or AA sequence to be aligned
     * `DNAString` object representing NT or AA sequence to be aligned
-    * list of `DNAString` objects with alignment of input sequences
+    * a list of `DNAString` objects with alignment of input sequences
     * an integer value of a score for matching bases
     * an integer value of a score for mismatching bases
     * an integer value of a penalty for gap insertion
 
 * Output:
-    * list of `DNAString` objects with alignment of input sequences
+    * a list of `DNAString` objects with alignment of input sequences
 
 * Implement the function on your own or you can use a prepared template `hirschberg_template.R`.
 * **Hint:** You will need to implement your own function to calculate the score of the partial alignments 
